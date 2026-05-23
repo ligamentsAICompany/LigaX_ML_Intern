@@ -2,6 +2,10 @@
 **/.env.*
 !.env.example
 !.env.sample
+*.pem
+*.key
+*credentials*.json
+*service-account*.json
 
 .git
 .gitignore
@@ -26,6 +30,10 @@ session_logs
 **/session_logs
 .session_store
 **/.session_store
+outputs
+**/outputs
+uploads
+**/uploads
 logs
 **/*.log
 
