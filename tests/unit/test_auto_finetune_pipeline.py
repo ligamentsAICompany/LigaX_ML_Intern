@@ -60,7 +60,9 @@ def test_intent_and_dataset_repo_resolution_from_text_and_context():
         == "org/data"
     )
     assert (
-        resolve_dataset_repo("fine tune uploaded dataset", {"dataset_repo": "org/uploaded"})
+        resolve_dataset_repo(
+            "fine tune uploaded dataset", {"dataset_repo": "org/uploaded"}
+        )
         == "org/uploaded"
     )
 
