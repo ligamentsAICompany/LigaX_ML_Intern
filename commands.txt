@@ -1,0 +1,4 @@
+export PATH="/Users/gurumonish/.local/bin:$PATH"
+~/.local/bin/ml-intern "Dataset is bitext/Bitext-telco-llm-chatbot-training-dataset and model is gemma 2bit
+
+I want to full finetuning with above Dataset, model and deploy the model in hugging face"

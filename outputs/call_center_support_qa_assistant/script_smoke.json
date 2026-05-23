@@ -1,0 +1,7 @@
+{
+  "status": "pass",
+  "passed": true,
+  "is_training_script": true,
+  "issues": [],
+  "formatted": "Script smoke passed (pass); training script: yes."
+}

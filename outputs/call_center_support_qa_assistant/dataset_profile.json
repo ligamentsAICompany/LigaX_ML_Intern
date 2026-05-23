@@ -1,0 +1,965 @@
+{
+  "source": {
+    "type": "local_file",
+    "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+    "format": "csv",
+    "public_origin": "bitext/Bitext-telco-llm-chatbot-training-dataset",
+    "product_domain": "call-center"
+  },
+  "format": "csv",
+  "row_count": 26000,
+  "profiled_row_count": 26000,
+  "statistics_basis": "full_dataset",
+  "columns": [
+    "instruction",
+    "intent",
+    "category",
+    "tags",
+    "response"
+  ],
+  "inferred_shape": "prompt_completion",
+  "missing_summary": {
+    "instruction": 0,
+    "intent": 0,
+    "category": 0,
+    "tags": 0,
+    "response": 0
+  },
+  "missing_fraction": 0.0,
+  "duplicate_count": 0,
+  "duplicate_fraction": 0.0,
+  "sample_rows": [
+    {
+      "instruction": "there are charges on my phone bill that i do not recogniae challenge it",
+      "intent": "dispute_invoice",
+      "category": "BILLING",
+      "tags": "BCELQZ",
+      "response": "If you have noticed discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSI..."
+    },
+    {
+      "instruction": "my internet bill is incorrect, can you help me dispute it ?",
+      "intent": "dispute_invoice",
+      "category": "BILLING",
+      "tags": "BCILZ",
+      "response": "If there is an issue with your bill and you would like to formally dispute it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {..."
+    },
+    {
+      "instruction": "my [REDACTED_INVOICE] is not corect challenge it",
+      "intent": "dispute_invoice",
+      "category": "BILLING",
+      "tags": "BCELQZ",
+      "response": "If you find any discrepancies in your [REDACTED_INVOICE] and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on..."
+    }
+  ],
+  "trainability": {
+    "score": 90,
+    "recommendation": "fine_tune",
+    "risk_level": "low",
+    "reasons": [
+      "Dataset has instruction/SFT-style fields suitable for supervised fine-tuning.",
+      "Dataset format (csv) is tabular and needs task conversion before SFT."
+    ]
+  },
+  "strategy": {
+    "strategy": "fine_tune",
+    "confidence": 0.9,
+    "risk_level": "low",
+    "reasons": [
+      "Recommended method: supervised fine-tuning.",
+      "Dataset has valid instruction/SFT-style fields for training.",
+      "Dataset has instruction/SFT-style fields suitable for supervised fine-tuning.",
+      "Dataset format (csv) is tabular and needs task conversion before SFT."
+    ],
+    "required_next_actions": [
+      "Run a small SFT job with held-out evaluation before scaling.",
+      "Track quality and overfitting metrics during training."
+    ],
+    "can_train_without_override": true,
+    "requires_user_override_for_training": false,
+    "method_hint": "sft",
+    "override_message": "",
+    "metadata": {
+      "trainability": {
+        "score": 90,
+        "recommendation": "fine_tune",
+        "risk_level": "low",
+        "reasons": [
+          "Dataset has instruction/SFT-style fields suitable for supervised fine-tuning.",
+          "Dataset format (csv) is tabular and needs task conversion before SFT."
+        ]
+      },
+      "method_recommendation": "sft"
+    }
+  },
+  "golden_eval": {
+    "case_count": 25,
+    "quality_constraints": [
+      "Do not hallucinate values",
+      "Expected answer must be concise",
+      "Answer must be supported by source fields"
+    ],
+    "cases": [
+      {
+        "id": "sft_reference_eval:0:prompt_completion",
+        "question": "there are charges on my phone bill that i do not recogniae challenge it",
+        "expected_answer": "If you have noticed discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 0,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "there are charges on my phone bill that i do not recogniae challenge it",
+            "response": "If you have noticed discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:1:prompt_completion",
+        "question": "my internet bill is incorrect, can you help me dispute it ?",
+        "expected_answer": "If there is an issue with your bill and you would like to formally dispute it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill yo...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 1,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "my internet bill is incorrect, can you help me dispute it ?",
+            "response": "If there is an issue with your bill and you would like to formally dispute it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill yo..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:2:prompt_completion",
+        "question": "my [REDACTED_INVOICE] is not corect challenge it",
+        "expected_answer": "If you find any discrepancies in your [REDACTED_INVOICE] and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill....",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 2,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "my [REDACTED_INVOICE] is not corect challenge it",
+            "response": "If you find any discrepancies in your [REDACTED_INVOICE] and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:3:prompt_completion",
+        "question": "I don't recognize some charges on my bill, can you help me appeal it?",
+        "expected_answer": "If you have found charges on your bill that you believe are inaccurate and wish to dispute them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3.....",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 3,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "I don't recognize some charges on my bill, can you help me appeal it?",
+            "response": "If you have found charges on your bill that you believe are inaccurate and wish to dispute them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3...."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:4:prompt_completion",
+        "question": "i have to dispute a fucking bill i need help",
+        "expected_answer": "If you believe there is an error on your bill and would like to initiate a dispute, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 4,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "i have to dispute a fucking bill i need help",
+            "response": "If you believe there is an error on your bill and would like to initiate a dispute, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:5:prompt_completion",
+        "question": "there are charges on my ingernet bill that I don't recognize, appeal it",
+        "expected_answer": "If you have noticed unfamiliar charges on your internet bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 5,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "there are charges on my ingernet bill that I don't recognize, appeal it",
+            "response": "If you have noticed unfamiliar charges on your internet bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:6:prompt_completion",
+        "question": "there are charges on  my [REDACTED_INVOICE] I don't recognize, help me challenging it",
+        "expected_answer": "If you believe there are unfamiliar charges on your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bil...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 6,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "there are charges on  my [REDACTED_INVOICE] I don't recognize, help me challenging it",
+            "response": "If you believe there are unfamiliar charges on your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bil..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:7:prompt_completion",
+        "question": "I'd like to appeal a fucking bill, where can I do it?",
+        "expected_answer": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 7,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "I'd like to appeal a fucking bill, where can I do it?",
+            "response": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:8:prompt_completion",
+        "question": "I got to dispute a phone bill, I need help",
+        "expected_answer": "If you believe your phone bill contains discrepancies and you wish to challenge it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bi...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 8,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "I got to dispute a phone bill, I need help",
+            "response": "If you believe your phone bill contains discrepancies and you wish to challenge it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bi..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:9:prompt_completion",
+        "question": "there are charges on my bill that i do not recognize could ya help me challenging it",
+        "expected_answer": "If you have found discrepancies in your bill that you wish to contest, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to dispute.....",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 9,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "there are charges on my bill that i do not recognize could ya help me challenging it",
+            "response": "If you have found discrepancies in your bill that you wish to contest, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to dispute...."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:10:prompt_completion",
+        "question": "i dont recognize some charges on my bill  will ya help me challenging it",
+        "expected_answer": "If you believe there are discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 10,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "i dont recognize some charges on my bill  will ya help me challenging it",
+            "response": "If you believe there are discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:11:prompt_completion",
+        "question": "I do not recognize some charges on my internet bill, can you help me to challenge it?",
+        "expected_answer": "If you have found discrepancies in your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to....",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 11,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "I do not recognize some charges on my internet bill, can you help me to challenge it?",
+            "response": "If you have found discrepancies in your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:12:prompt_completion",
+        "question": "their are charges on my bill that I do not recognize, can you help me dispute it?",
+        "expected_answer": "If you have found discrepancies in your bill that you wish to contest, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to dispute.....",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 12,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "their are charges on my bill that I do not recognize, can you help me dispute it?",
+            "response": "If you have found discrepancies in your bill that you wish to contest, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to dispute...."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:13:prompt_completion",
+        "question": "I do not recognize some charges on my bill, is it possible to appeal it?",
+        "expected_answer": "If there are charges on your bill that you find unrecognized and wish to appeal, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill....",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 13,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "I do not recognize some charges on my bill, is it possible to appeal it?",
+            "response": "If there are charges on your bill that you find unrecognized and wish to appeal, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:14:prompt_completion",
+        "question": "there are charges on my bill that ido not recognize could ya help me appeal it",
+        "expected_answer": "If you have found discrepancies in your bill that you wish to contest, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to dispute.....",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 14,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "there are charges on my bill that ido not recognize could ya help me appeal it",
+            "response": "If you have found discrepancies in your bill that you wish to contest, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to dispute...."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:15:prompt_completion",
+        "question": "there are charges on my internet bill that I do not recognize, how could I appeal it ?",
+        "expected_answer": "If you find discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to disp...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 15,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "there are charges on my internet bill that I do not recognize, how could I appeal it ?",
+            "response": "If you find discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to disp..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:16:prompt_completion",
+        "question": "I have to appewal a fucking bill, where do I do it?",
+        "expected_answer": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 16,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "I have to appewal a fucking bill, where do I do it?",
+            "response": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:17:prompt_completion",
+        "question": "I'd like to challenge a fucking bill, I  need assistance",
+        "expected_answer": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 17,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "I'd like to challenge a fucking bill, I  need assistance",
+            "response": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:18:prompt_completion",
+        "question": "I'd like to dispute an internet bill , will you help me?",
+        "expected_answer": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 18,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "I'd like to dispute an internet bill , will you help me?",
+            "response": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:19:prompt_completion",
+        "question": "i have to challenge a fucking phone bill where could i do it",
+        "expected_answer": "If you have found an error on your [REDACTED_INVOICE] and would like to formally dispute it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Sele...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 19,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "i have to challenge a fucking phone bill where could i do it",
+            "response": "If you have found an error on your [REDACTED_INVOICE] and would like to formally dispute it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Sele..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:20:prompt_completion",
+        "question": "I'd like to dispute an [REDACTED_INVOICE] me",
+        "expected_answer": "If you believe there is an error in your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 20,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "I'd like to dispute an [REDACTED_INVOICE] me",
+            "response": "If you believe there is an error in your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:21:prompt_completion",
+        "question": "i got to challenge a fucking phone bill where can i do it",
+        "expected_answer": "If you have found an error on your [REDACTED_INVOICE] and would like to contest it, please adhere to the following guidelines:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select t...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 21,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "i got to challenge a fucking phone bill where can i do it",
+            "response": "If you have found an error on your [REDACTED_INVOICE] and would like to contest it, please adhere to the following guidelines:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select t..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:22:prompt_completion",
+        "question": "I got to appeal a fucking inetrnet bill, I need help",
+        "expected_answer": "If you believe there is an error in your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 22,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "I got to appeal a fucking inetrnet bill, I need help",
+            "response": "If you believe there is an error in your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:23:prompt_completion",
+        "question": "wanna appeal a fucking phone bill were do i do it",
+        "expected_answer": "If you have found an error on your [REDACTED_INVOICE] and would like to contest it, please adhere to the following instructions:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 23,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "wanna appeal a fucking phone bill were do i do it",
+            "response": "If you have found an error on your [REDACTED_INVOICE] and would like to contest it, please adhere to the following instructions:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      },
+      {
+        "id": "sft_reference_eval:24:prompt_completion",
+        "question": "I'd like to challenge an internet bill, I need assistance",
+        "expected_answer": "If you believe there is an error on your [REDACTED_INVOICE] and wish to contest it, please proceed with the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the...",
+        "rubric": [
+          "Answer must be supported by the source fields.",
+          "Do not add values that are missing from the source.",
+          "Use 'Not specified in the source table' when the requested field is empty."
+        ],
+        "source_metadata": {
+          "row_index": 24,
+          "source": {
+            "type": "local_file",
+            "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+            "format": "csv"
+          },
+          "columns_used": [
+            "instruction",
+            "response"
+          ],
+          "source_fields": {
+            "instruction": "I'd like to challenge an internet bill, I need assistance",
+            "response": "If you believe there is an error on your [REDACTED_INVOICE] and wish to contest it, please proceed with the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the..."
+          },
+          "holdout_status": "sample_based/unverified"
+        },
+        "task_type": "sft_reference_eval",
+        "domain": null,
+        "quality_constraints": [
+          "Do not hallucinate values",
+          "Expected answer must be concise",
+          "Answer must be supported by source fields"
+        ]
+      }
+    ]
+  },
+  "reference_lookup": {
+    "ready": true,
+    "row_count": 26000,
+    "key_columns": [
+      "category"
+    ],
+    "answer_columns": [
+      "category"
+    ],
+    "status": "ready"
+  }
+}

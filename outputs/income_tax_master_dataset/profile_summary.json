@@ -1,0 +1,30 @@
+{
+  "repo_id": "ligaments-dev/income-tax-master",
+  "source_file": "Income_Tax_Master.xlsx",
+  "sheet_count": 1,
+  "row_count": 26,
+  "sheets": [
+    {
+      "name": "Income Tax Master",
+      "rows": 26,
+      "columns": [
+        "Form_No",
+        "Category",
+        "Purpose",
+        "Applicable_Sections",
+        "Filing_Frequency",
+        "Due_Dates",
+        "User_Categories",
+        "Old_New_Regime_Applicability",
+        "API___E_Filing_Mapping_Possibilities"
+      ]
+    }
+  ],
+  "primary_columns": [
+    "sheet",
+    "row_number",
+    "text",
+    "record"
+  ],
+  "strategy_hint": "structured_reference_table_rag"
+}

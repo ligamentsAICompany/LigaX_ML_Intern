@@ -1,0 +1,102 @@
+{
+  "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "dataset": {
+    "type": "local_file",
+    "path": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+    "format": "csv",
+    "row_count": 26000,
+    "examples_count": 26000,
+    "profiled_row_count": 26000,
+    "statistics_basis": "full_dataset",
+    "inferred_shape": "prompt_completion",
+    "columns": [
+      "instruction",
+      "intent",
+      "category",
+      "tags",
+      "response"
+    ]
+  },
+  "row_count": 26000,
+  "examples_count": 26000,
+  "trainability": {
+    "score": 90,
+    "recommendation": "fine_tune",
+    "risk_level": "low",
+    "reasons": [
+      "Dataset has instruction/SFT-style fields suitable for supervised fine-tuning.",
+      "Dataset format (csv) is tabular and needs task conversion before SFT."
+    ]
+  },
+  "strategy": {
+    "strategy": "fine_tune",
+    "confidence": 0.9,
+    "risk_level": "low",
+    "reasons": [
+      "Recommended method: supervised fine-tuning.",
+      "Dataset has valid instruction/SFT-style fields for training.",
+      "Dataset has instruction/SFT-style fields suitable for supervised fine-tuning.",
+      "Dataset format (csv) is tabular and needs task conversion before SFT."
+    ],
+    "required_next_actions": [
+      "Run a small SFT job with held-out evaluation before scaling.",
+      "Track quality and overfitting metrics during training."
+    ],
+    "can_train_without_override": true,
+    "requires_user_override_for_training": false,
+    "method_hint": "sft",
+    "override_message": "",
+    "metadata": {
+      "trainability": {
+        "score": 90,
+        "recommendation": "fine_tune",
+        "risk_level": "low",
+        "reasons": [
+          "Dataset has instruction/SFT-style fields suitable for supervised fine-tuning.",
+          "Dataset format (csv) is tabular and needs task conversion before SFT."
+        ]
+      },
+      "method_recommendation": "sft"
+    }
+  },
+  "golden_eval": {
+    "case_count": 25,
+    "quality_constraints": [
+      "Do not hallucinate values",
+      "Expected answer must be concise",
+      "Answer must be supported by source fields"
+    ],
+    "task_types": [
+      "sft_reference_eval"
+    ]
+  },
+  "post_training_eval": {
+    "status": "passed",
+    "valid": true,
+    "case_count": 25,
+    "passed": 25,
+    "failed": 0,
+    "needs_rag": 0,
+    "needs_more_data": 0,
+    "top_reasons": [
+      "All expected source-grounded facts were present."
+    ]
+  },
+  "limitations": [
+    "Local reference assistant passed deterministic source-grounded eval; trained model eval is pending until the HF Job finishes.",
+    "Dataset is public support-template data with placeholders, not private company policy transcripts.",
+    "Human QA review is required before production use."
+  ],
+  "training": {
+    "method": "sft_lora",
+    "cost": {
+      "estimated_max_usd": 1.2,
+      "budget_cap_usd": 10.0
+    },
+    "hardware": {
+      "provider": "hf-jobs",
+      "flavor": "t4-small"
+    },
+    "timeout": "2h"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "status": "completed",
+  "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "dataset_repo": "ligaments-dev/call-center-support-qa-assistant-option4-data",
+  "model_repo": "ligaments-dev/call-center-support-qa-assistant-option4-lora",
+  "train_rows": 1200,
+  "eval_rows": 100,
+  "metrics": {
+    "eval_loss": 1.2473915815353394,
+    "eval_runtime": 6.8175,
+    "eval_samples_per_second": 14.668,
+    "eval_steps_per_second": 14.668
+  },
+  "trainability": {
+    "score": 90,
+    "recommendation": "fine_tune",
+    "risk_level": "low",
+    "reasons": [
+      "Dataset has instruction/SFT-style fields suitable for supervised fine-tuning.",
+      "Dataset format (csv) is tabular and needs task conversion before SFT."
+    ]
+  },
+  "strategy": {
+    "strategy": "fine_tune",
+    "confidence": 0.9,
+    "risk_level": "low",
+    "reasons": [
+      "Recommended method: supervised fine-tuning.",
+      "Dataset has valid instruction/SFT-style fields for training.",
+      "Dataset has instruction/SFT-style fields suitable for supervised fine-tuning.",
+      "Dataset format (csv) is tabular and needs task conversion before SFT."
+    ],
+    "required_next_actions": [
+      "Run a small SFT job with held-out evaluation before scaling.",
+      "Track quality and overfitting metrics during training."
+    ],
+    "can_train_without_override": true,
+    "requires_user_override_for_training": false,
+    "method_hint": "sft",
+    "override_message": "",
+    "metadata": {
+      "trainability": {
+        "score": 90,
+        "recommendation": "fine_tune",
+        "risk_level": "low",
+        "reasons": [
+          "Dataset has instruction/SFT-style fields suitable for supervised fine-tuning.",
+          "Dataset format (csv) is tabular and needs task conversion before SFT."
+        ]
+      },
+      "method_recommendation": "sft"
+    }
+  },
+  "golden_eval": {
+    "case_count": 25,
+    "quality_constraints": [
+      "Do not hallucinate values",
+      "Expected answer must be concise",
+      "Answer must be supported by source fields"
+    ]
+  },
+  "limitations": [
+    "Short budget-constrained LoRA run; validate with human QA before production.",
+    "Public Bitext examples use placeholders and may not cover private company policy."
+  ]
+}

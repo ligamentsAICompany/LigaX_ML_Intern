@@ -1,0 +1,81 @@
+{
+  "dataset_repo": "ligaments-dev/call-center-support-qa-assistant-option4-data",
+  "model_repo": "ligaments-dev/call-center-support-qa-assistant-option4-lora",
+  "source_csv": "D:\\_AI_\\LigaX_ML_Intern\\huggingface-ml-intern-finetuning\\bitext-telco-llm-chatbot-training-dataset.csv",
+  "rows": 26000,
+  "train_rows": 24700,
+  "test_rows": 1300,
+  "trainability": {
+    "score": 90,
+    "recommendation": "fine_tune",
+    "risk_level": "low",
+    "reasons": [
+      "Dataset has instruction/SFT-style fields suitable for supervised fine-tuning.",
+      "Dataset format (csv) is tabular and needs task conversion before SFT."
+    ]
+  },
+  "strategy": {
+    "strategy": "fine_tune",
+    "confidence": 0.9,
+    "risk_level": "low",
+    "reasons": [
+      "Recommended method: supervised fine-tuning.",
+      "Dataset has valid instruction/SFT-style fields for training.",
+      "Dataset has instruction/SFT-style fields suitable for supervised fine-tuning.",
+      "Dataset format (csv) is tabular and needs task conversion before SFT."
+    ],
+    "required_next_actions": [
+      "Run a small SFT job with held-out evaluation before scaling.",
+      "Track quality and overfitting metrics during training."
+    ],
+    "can_train_without_override": true,
+    "requires_user_override_for_training": false,
+    "method_hint": "sft",
+    "override_message": "",
+    "metadata": {
+      "trainability": {
+        "score": 90,
+        "recommendation": "fine_tune",
+        "risk_level": "low",
+        "reasons": [
+          "Dataset has instruction/SFT-style fields suitable for supervised fine-tuning.",
+          "Dataset format (csv) is tabular and needs task conversion before SFT."
+        ]
+      },
+      "method_recommendation": "sft"
+    }
+  },
+  "golden_eval_case_count": 25,
+  "reference_ready": {
+    "ready": true,
+    "row_count": 26000,
+    "key_columns": [
+      "category"
+    ],
+    "answer_columns": [
+      "category"
+    ],
+    "status": "ready"
+  },
+  "reference_post_eval": "passed",
+  "script_smoke": {
+    "status": "pass",
+    "passed": true,
+    "is_training_script": true,
+    "issues": [],
+    "formatted": "Script smoke passed (pass); training script: yes."
+  },
+  "estimated_job_cost_usd": "<=1.20 at t4-small for 2h timeout",
+  "product_status": "ready_for_pilot_not_production",
+  "hf_job_id": "6a0f0f2ae3c0b51e1ca5cb87",
+  "hf_job_url": "https://huggingface.co/jobs/ligaments-dev/6a0f0f2ae3c0b51e1ca5cb87",
+  "hf_job_status": "COMPLETED",
+  "model_eval": {
+    "eval_loss": 1.2473915815353394,
+    "eval_runtime": 6.8175,
+    "eval_samples_per_second": 14.668,
+    "eval_steps_per_second": 14.668
+  },
+  "training_rows": 1200,
+  "eval_rows": 100
+}

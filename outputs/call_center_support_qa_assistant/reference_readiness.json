@@ -1,0 +1,11 @@
+{
+  "ready": true,
+  "row_count": 26000,
+  "key_columns": [
+    "category"
+  ],
+  "answer_columns": [
+    "category"
+  ],
+  "status": "ready"
+}

@@ -1,0 +1,235 @@
+sheet,row_number,text,record_json
+Income Tax Master,2,"Form_No: ITR-1 (Sahaj)
+Category: ITR
+Purpose: Simple income return
+Applicable_Sections: Sec 139(1)
+Filing_Frequency: Annual
+Due_Dates: 31 July
+User_Categories: Salaried Individuals
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: ITR Filing API","{""Form_No"": ""ITR-1 (Sahaj)"", ""Category"": ""ITR"", ""Purpose"": ""Simple income return"", ""Applicable_Sections"": ""Sec 139(1)"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""31 July"", ""User_Categories"": ""Salaried Individuals"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""ITR Filing API""}"
+Income Tax Master,3,"Form_No: ITR-2
+Category: ITR
+Purpose: Capital gains filing
+Applicable_Sections: Sec 139(1)
+Filing_Frequency: Annual
+Due_Dates: 31 July
+User_Categories: Individuals/HUF
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: ITR Filing API","{""Form_No"": ""ITR-2"", ""Category"": ""ITR"", ""Purpose"": ""Capital gains filing"", ""Applicable_Sections"": ""Sec 139(1)"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""31 July"", ""User_Categories"": ""Individuals/HUF"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""ITR Filing API""}"
+Income Tax Master,4,"Form_No: ITR-3
+Category: ITR
+Purpose: Business income filing
+Applicable_Sections: Sec 139(1)
+Filing_Frequency: Annual
+Due_Dates: 31 July
+User_Categories: Business Owners
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: ITR Filing API","{""Form_No"": ""ITR-3"", ""Category"": ""ITR"", ""Purpose"": ""Business income filing"", ""Applicable_Sections"": ""Sec 139(1)"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""31 July"", ""User_Categories"": ""Business Owners"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""ITR Filing API""}"
+Income Tax Master,5,"Form_No: ITR-4
+Category: ITR
+Purpose: Presumptive taxation
+Applicable_Sections: Sec 44AD/44ADA
+Filing_Frequency: Annual
+Due_Dates: 31 July
+User_Categories: Small Businesses
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: ITR Filing API","{""Form_No"": ""ITR-4"", ""Category"": ""ITR"", ""Purpose"": ""Presumptive taxation"", ""Applicable_Sections"": ""Sec 44AD/44ADA"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""31 July"", ""User_Categories"": ""Small Businesses"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""ITR Filing API""}"
+Income Tax Master,6,"Form_No: ITR-5
+Category: ITR
+Purpose: LLP/Firm return
+Applicable_Sections: Sec 139(1)
+Filing_Frequency: Annual
+Due_Dates: 31 Oct
+User_Categories: LLP/Firms
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: Corporate Filing API","{""Form_No"": ""ITR-5"", ""Category"": ""ITR"", ""Purpose"": ""LLP/Firm return"", ""Applicable_Sections"": ""Sec 139(1)"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""31 Oct"", ""User_Categories"": ""LLP/Firms"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""Corporate Filing API""}"
+Income Tax Master,7,"Form_No: ITR-6
+Category: ITR
+Purpose: Company return
+Applicable_Sections: Companies Act
+Filing_Frequency: Annual
+Due_Dates: 31 Oct
+User_Categories: Companies
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: Corporate Filing API","{""Form_No"": ""ITR-6"", ""Category"": ""ITR"", ""Purpose"": ""Company return"", ""Applicable_Sections"": ""Companies Act"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""31 Oct"", ""User_Categories"": ""Companies"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""Corporate Filing API""}"
+Income Tax Master,8,"Form_No: ITR-7
+Category: ITR
+Purpose: Trust return
+Applicable_Sections: Sec 139(4A)
+Filing_Frequency: Annual
+Due_Dates: 31 Oct
+User_Categories: Trusts/Institutions
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: NGO Filing API","{""Form_No"": ""ITR-7"", ""Category"": ""ITR"", ""Purpose"": ""Trust return"", ""Applicable_Sections"": ""Sec 139(4A)"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""31 Oct"", ""User_Categories"": ""Trusts/Institutions"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""NGO Filing API""}"
+Income Tax Master,9,"Form_No: Form 16
+Category: TDS
+Purpose: Salary TDS certificate
+Applicable_Sections: Sec 203
+Filing_Frequency: Annual
+Due_Dates: 15 June
+User_Categories: Employers
+Old_New_Regime_Applicability: NA
+API___E_Filing_Mapping_Possibilities: TRACES API","{""Form_No"": ""Form 16"", ""Category"": ""TDS"", ""Purpose"": ""Salary TDS certificate"", ""Applicable_Sections"": ""Sec 203"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""15 June"", ""User_Categories"": ""Employers"", ""Old_New_Regime_Applicability"": ""NA"", ""API___E_Filing_Mapping_Possibilities"": ""TRACES API""}"
+Income Tax Master,10,"Form_No: Form 24Q
+Category: TDS
+Purpose: Salary TDS return
+Applicable_Sections: Sec 192
+Filing_Frequency: Quarterly
+Due_Dates: Quarterly
+User_Categories: Employers
+Old_New_Regime_Applicability: NA
+API___E_Filing_Mapping_Possibilities: TDS API","{""Form_No"": ""Form 24Q"", ""Category"": ""TDS"", ""Purpose"": ""Salary TDS return"", ""Applicable_Sections"": ""Sec 192"", ""Filing_Frequency"": ""Quarterly"", ""Due_Dates"": ""Quarterly"", ""User_Categories"": ""Employers"", ""Old_New_Regime_Applicability"": ""NA"", ""API___E_Filing_Mapping_Possibilities"": ""TDS API""}"
+Income Tax Master,11,"Form_No: Form 26Q
+Category: TDS
+Purpose: Non-salary TDS return
+Applicable_Sections: Sec 200(3)
+Filing_Frequency: Quarterly
+Due_Dates: Quarterly
+User_Categories: Deductors
+Old_New_Regime_Applicability: NA
+API___E_Filing_Mapping_Possibilities: TDS API","{""Form_No"": ""Form 26Q"", ""Category"": ""TDS"", ""Purpose"": ""Non-salary TDS return"", ""Applicable_Sections"": ""Sec 200(3)"", ""Filing_Frequency"": ""Quarterly"", ""Due_Dates"": ""Quarterly"", ""User_Categories"": ""Deductors"", ""Old_New_Regime_Applicability"": ""NA"", ""API___E_Filing_Mapping_Possibilities"": ""TDS API""}"
+Income Tax Master,12,"Form_No: Form 27Q
+Category: TDS
+Purpose: Foreign payment TDS
+Applicable_Sections: Sec 195
+Filing_Frequency: Quarterly
+Due_Dates: Quarterly
+User_Categories: Deductors
+Old_New_Regime_Applicability: NA
+API___E_Filing_Mapping_Possibilities: TDS API","{""Form_No"": ""Form 27Q"", ""Category"": ""TDS"", ""Purpose"": ""Foreign payment TDS"", ""Applicable_Sections"": ""Sec 195"", ""Filing_Frequency"": ""Quarterly"", ""Due_Dates"": ""Quarterly"", ""User_Categories"": ""Deductors"", ""Old_New_Regime_Applicability"": ""NA"", ""API___E_Filing_Mapping_Possibilities"": ""TDS API""}"
+Income Tax Master,13,"Form_No: Form 26AS
+Category: Statement
+Purpose: Annual tax statement
+Applicable_Sections: Rule 31AB
+Filing_Frequency: Dynamic
+Due_Dates: NA
+User_Categories: All taxpayers
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: AIS API","{""Form_No"": ""Form 26AS"", ""Category"": ""Statement"", ""Purpose"": ""Annual tax statement"", ""Applicable_Sections"": ""Rule 31AB"", ""Filing_Frequency"": ""Dynamic"", ""Due_Dates"": ""NA"", ""User_Categories"": ""All taxpayers"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""AIS API""}"
+Income Tax Master,14,"Form_No: AIS
+Category: Statement
+Purpose: Annual information statement
+Applicable_Sections: CBDT
+Filing_Frequency: Dynamic
+Due_Dates: NA
+User_Categories: All taxpayers
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: AIS API","{""Form_No"": ""AIS"", ""Category"": ""Statement"", ""Purpose"": ""Annual information statement"", ""Applicable_Sections"": ""CBDT"", ""Filing_Frequency"": ""Dynamic"", ""Due_Dates"": ""NA"", ""User_Categories"": ""All taxpayers"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""AIS API""}"
+Income Tax Master,15,"Form_No: Form 15G
+Category: Declaration
+Purpose: No TDS declaration
+Applicable_Sections: Sec 197A
+Filing_Frequency: Annual
+Due_Dates: FY Start
+User_Categories: Individuals
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: Declaration API","{""Form_No"": ""Form 15G"", ""Category"": ""Declaration"", ""Purpose"": ""No TDS declaration"", ""Applicable_Sections"": ""Sec 197A"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""FY Start"", ""User_Categories"": ""Individuals"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""Declaration API""}"
+Income Tax Master,16,"Form_No: Form 15H
+Category: Declaration
+Purpose: Senior citizen declaration
+Applicable_Sections: Sec 197A
+Filing_Frequency: Annual
+Due_Dates: FY Start
+User_Categories: Senior Citizens
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: Declaration API","{""Form_No"": ""Form 15H"", ""Category"": ""Declaration"", ""Purpose"": ""Senior citizen declaration"", ""Applicable_Sections"": ""Sec 197A"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""FY Start"", ""User_Categories"": ""Senior Citizens"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""Declaration API""}"
+Income Tax Master,17,"Form_No: Form 10E
+Category: Relief
+Purpose: Salary arrear relief
+Applicable_Sections: Sec 89(1)
+Filing_Frequency: As Needed
+Due_Dates: Before ITR
+User_Categories: Employees
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: Relief API","{""Form_No"": ""Form 10E"", ""Category"": ""Relief"", ""Purpose"": ""Salary arrear relief"", ""Applicable_Sections"": ""Sec 89(1)"", ""Filing_Frequency"": ""As Needed"", ""Due_Dates"": ""Before ITR"", ""User_Categories"": ""Employees"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""Relief API""}"
+Income Tax Master,18,"Form_No: Form 49A
+Category: PAN
+Purpose: PAN Application
+Applicable_Sections: Rule 114
+Filing_Frequency: One-time
+Due_Dates: NA
+User_Categories: Indian Citizens
+Old_New_Regime_Applicability: NA
+API___E_Filing_Mapping_Possibilities: PAN API","{""Form_No"": ""Form 49A"", ""Category"": ""PAN"", ""Purpose"": ""PAN Application"", ""Applicable_Sections"": ""Rule 114"", ""Filing_Frequency"": ""One-time"", ""Due_Dates"": ""NA"", ""User_Categories"": ""Indian Citizens"", ""Old_New_Regime_Applicability"": ""NA"", ""API___E_Filing_Mapping_Possibilities"": ""PAN API""}"
+Income Tax Master,19,"Form_No: Form 49AA
+Category: PAN
+Purpose: Foreign PAN Application
+Applicable_Sections: Rule 114
+Filing_Frequency: One-time
+Due_Dates: NA
+User_Categories: Foreigners
+Old_New_Regime_Applicability: NA
+API___E_Filing_Mapping_Possibilities: PAN API","{""Form_No"": ""Form 49AA"", ""Category"": ""PAN"", ""Purpose"": ""Foreign PAN Application"", ""Applicable_Sections"": ""Rule 114"", ""Filing_Frequency"": ""One-time"", ""Due_Dates"": ""NA"", ""User_Categories"": ""Foreigners"", ""Old_New_Regime_Applicability"": ""NA"", ""API___E_Filing_Mapping_Possibilities"": ""PAN API""}"
+Income Tax Master,20,"Form_No: Form 49B
+Category: TAN
+Purpose: TAN Application
+Applicable_Sections: Sec 203A
+Filing_Frequency: One-time
+Due_Dates: NA
+User_Categories: Businesses
+Old_New_Regime_Applicability: NA
+API___E_Filing_Mapping_Possibilities: TAN API","{""Form_No"": ""Form 49B"", ""Category"": ""TAN"", ""Purpose"": ""TAN Application"", ""Applicable_Sections"": ""Sec 203A"", ""Filing_Frequency"": ""One-time"", ""Due_Dates"": ""NA"", ""User_Categories"": ""Businesses"", ""Old_New_Regime_Applicability"": ""NA"", ""API___E_Filing_Mapping_Possibilities"": ""TAN API""}"
+Income Tax Master,21,"Form_No: Form 3CA
+Category: Audit
+Purpose: Tax audit report
+Applicable_Sections: Sec 44AB
+Filing_Frequency: Annual
+Due_Dates: 30 Sept
+User_Categories: Businesses
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: Audit API","{""Form_No"": ""Form 3CA"", ""Category"": ""Audit"", ""Purpose"": ""Tax audit report"", ""Applicable_Sections"": ""Sec 44AB"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""30 Sept"", ""User_Categories"": ""Businesses"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""Audit API""}"
+Income Tax Master,22,"Form_No: Form 3CB
+Category: Audit
+Purpose: Tax audit report
+Applicable_Sections: Sec 44AB
+Filing_Frequency: Annual
+Due_Dates: 30 Sept
+User_Categories: Businesses
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: Audit API","{""Form_No"": ""Form 3CB"", ""Category"": ""Audit"", ""Purpose"": ""Tax audit report"", ""Applicable_Sections"": ""Sec 44AB"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""30 Sept"", ""User_Categories"": ""Businesses"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""Audit API""}"
+Income Tax Master,23,"Form_No: Form 3CD
+Category: Audit
+Purpose: Audit particulars
+Applicable_Sections: Sec 44AB
+Filing_Frequency: Annual
+Due_Dates: 30 Sept
+User_Categories: Businesses
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: Audit API","{""Form_No"": ""Form 3CD"", ""Category"": ""Audit"", ""Purpose"": ""Audit particulars"", ""Applicable_Sections"": ""Sec 44AB"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""30 Sept"", ""User_Categories"": ""Businesses"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""Audit API""}"
+Income Tax Master,24,"Form_No: Form 10A
+Category: Trust
+Purpose: Trust registration
+Applicable_Sections: Sec 12A
+Filing_Frequency: One-time
+Due_Dates: NA
+User_Categories: NGOs/Trusts
+Old_New_Regime_Applicability: NA
+API___E_Filing_Mapping_Possibilities: Trust API","{""Form_No"": ""Form 10A"", ""Category"": ""Trust"", ""Purpose"": ""Trust registration"", ""Applicable_Sections"": ""Sec 12A"", ""Filing_Frequency"": ""One-time"", ""Due_Dates"": ""NA"", ""User_Categories"": ""NGOs/Trusts"", ""Old_New_Regime_Applicability"": ""NA"", ""API___E_Filing_Mapping_Possibilities"": ""Trust API""}"
+Income Tax Master,25,"Form_No: Form 10BD
+Category: Trust
+Purpose: Donation statement
+Applicable_Sections: Sec 80G
+Filing_Frequency: Annual
+Due_Dates: 31 May
+User_Categories: NGOs/Trusts
+Old_New_Regime_Applicability: NA
+API___E_Filing_Mapping_Possibilities: Donation API","{""Form_No"": ""Form 10BD"", ""Category"": ""Trust"", ""Purpose"": ""Donation statement"", ""Applicable_Sections"": ""Sec 80G"", ""Filing_Frequency"": ""Annual"", ""Due_Dates"": ""31 May"", ""User_Categories"": ""NGOs/Trusts"", ""Old_New_Regime_Applicability"": ""NA"", ""API___E_Filing_Mapping_Possibilities"": ""Donation API""}"
+Income Tax Master,26,"Form_No: Form 35
+Category: Appeal
+Purpose: Appeal to CIT(A)
+Applicable_Sections: Sec 246A
+Filing_Frequency: As Needed
+Due_Dates: Within limit
+User_Categories: Taxpayers
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: Appeal API","{""Form_No"": ""Form 35"", ""Category"": ""Appeal"", ""Purpose"": ""Appeal to CIT(A)"", ""Applicable_Sections"": ""Sec 246A"", ""Filing_Frequency"": ""As Needed"", ""Due_Dates"": ""Within limit"", ""User_Categories"": ""Taxpayers"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""Appeal API""}"
+Income Tax Master,27,"Form_No: ITNS 280
+Category: Challan
+Purpose: Income tax payment
+Applicable_Sections: Direct Tax
+Filing_Frequency: As Needed
+Due_Dates: Before filing
+User_Categories: All taxpayers
+Old_New_Regime_Applicability: Both
+API___E_Filing_Mapping_Possibilities: Payment API","{""Form_No"": ""ITNS 280"", ""Category"": ""Challan"", ""Purpose"": ""Income tax payment"", ""Applicable_Sections"": ""Direct Tax"", ""Filing_Frequency"": ""As Needed"", ""Due_Dates"": ""Before filing"", ""User_Categories"": ""All taxpayers"", ""Old_New_Regime_Applicability"": ""Both"", ""API___E_Filing_Mapping_Possibilities"": ""Payment API""}"

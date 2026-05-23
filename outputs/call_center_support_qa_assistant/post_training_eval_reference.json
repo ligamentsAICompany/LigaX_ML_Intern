@@ -1,0 +1,312 @@
+{
+  "status": "passed",
+  "case_count": 25,
+  "summary": {
+    "passed": 25,
+    "failed": 0,
+    "needs_rag": 0,
+    "needs_more_data": 0
+  },
+  "cases": [
+    {
+      "case_id": "sft_reference_eval:0:prompt_completion",
+      "question": "there are charges on my phone bill that i do not recogniae challenge it",
+      "expected_answer": "If you have noticed discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish...",
+      "model_output": "If you have noticed discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:1:prompt_completion",
+      "question": "my internet bill is incorrect, can you help me dispute it ?",
+      "expected_answer": "If there is an issue with your bill and you would like to formally dispute it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill yo...",
+      "model_output": "If there is an issue with your bill and you would like to formally dispute it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill yo...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:2:prompt_completion",
+      "question": "my [REDACTED_INVOICE] is not corect challenge it",
+      "expected_answer": "If you find any discrepancies in your [REDACTED_INVOICE] and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill....",
+      "model_output": "If you find any discrepancies in your [REDACTED_INVOICE] and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill....",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:3:prompt_completion",
+      "question": "I don't recognize some charges on my bill, can you help me appeal it?",
+      "expected_answer": "If you have found charges on your bill that you believe are inaccurate and wish to dispute them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3.....",
+      "model_output": "If you have found charges on your bill that you believe are inaccurate and wish to dispute them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3.....",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:4:prompt_completion",
+      "question": "i have to dispute a fucking bill i need help",
+      "expected_answer": "If you believe there is an error on your bill and would like to initiate a dispute, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish...",
+      "model_output": "If you believe there is an error on your bill and would like to initiate a dispute, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:5:prompt_completion",
+      "question": "there are charges on my ingernet bill that I don't recognize, appeal it",
+      "expected_answer": "If you have noticed unfamiliar charges on your internet bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the...",
+      "model_output": "If you have noticed unfamiliar charges on your internet bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:6:prompt_completion",
+      "question": "there are charges on  my [REDACTED_INVOICE] I don't recognize, help me challenging it",
+      "expected_answer": "If you believe there are unfamiliar charges on your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bil...",
+      "model_output": "If you believe there are unfamiliar charges on your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bil...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:7:prompt_completion",
+      "question": "I'd like to appeal a fucking bill, where can I do it?",
+      "expected_answer": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+      "model_output": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:8:prompt_completion",
+      "question": "I got to dispute a phone bill, I need help",
+      "expected_answer": "If you believe your phone bill contains discrepancies and you wish to challenge it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bi...",
+      "model_output": "If you believe your phone bill contains discrepancies and you wish to challenge it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bi...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:9:prompt_completion",
+      "question": "there are charges on my bill that i do not recognize could ya help me challenging it",
+      "expected_answer": "If you have found discrepancies in your bill that you wish to contest, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to dispute.....",
+      "model_output": "If you have found discrepancies in your bill that you wish to contest, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to dispute.....",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:10:prompt_completion",
+      "question": "i dont recognize some charges on my bill  will ya help me challenging it",
+      "expected_answer": "If you believe there are discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you...",
+      "model_output": "If you believe there are discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:11:prompt_completion",
+      "question": "I do not recognize some charges on my internet bill, can you help me to challenge it?",
+      "expected_answer": "If you have found discrepancies in your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to....",
+      "model_output": "If you have found discrepancies in your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to....",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:12:prompt_completion",
+      "question": "their are charges on my bill that I do not recognize, can you help me dispute it?",
+      "expected_answer": "If you have found discrepancies in your bill that you wish to contest, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to dispute.....",
+      "model_output": "If you have found discrepancies in your bill that you wish to contest, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to dispute.....",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:13:prompt_completion",
+      "question": "I do not recognize some charges on my bill, is it possible to appeal it?",
+      "expected_answer": "If there are charges on your bill that you find unrecognized and wish to appeal, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill....",
+      "model_output": "If there are charges on your bill that you find unrecognized and wish to appeal, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill....",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:14:prompt_completion",
+      "question": "there are charges on my bill that ido not recognize could ya help me appeal it",
+      "expected_answer": "If you have found discrepancies in your bill that you wish to contest, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to dispute.....",
+      "model_output": "If you have found discrepancies in your bill that you wish to contest, please follow these steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to dispute.....",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:15:prompt_completion",
+      "question": "there are charges on my internet bill that I do not recognize, how could I appeal it ?",
+      "expected_answer": "If you find discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to disp...",
+      "model_output": "If you find discrepancies in your bill and wish to contest them, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to disp...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:16:prompt_completion",
+      "question": "I have to appewal a fucking bill, where do I do it?",
+      "expected_answer": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+      "model_output": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:17:prompt_completion",
+      "question": "I'd like to challenge a fucking bill, I  need assistance",
+      "expected_answer": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+      "model_output": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:18:prompt_completion",
+      "question": "I'd like to dispute an internet bill , will you help me?",
+      "expected_answer": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+      "model_output": "If you believe there is an error on your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:19:prompt_completion",
+      "question": "i have to challenge a fucking phone bill where could i do it",
+      "expected_answer": "If you have found an error on your [REDACTED_INVOICE] and would like to formally dispute it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Sele...",
+      "model_output": "If you have found an error on your [REDACTED_INVOICE] and would like to formally dispute it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Sele...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:20:prompt_completion",
+      "question": "I'd like to dispute an [REDACTED_INVOICE] me",
+      "expected_answer": "If you believe there is an error in your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+      "model_output": "If you believe there is an error in your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:21:prompt_completion",
+      "question": "i got to challenge a fucking phone bill where can i do it",
+      "expected_answer": "If you have found an error on your [REDACTED_INVOICE] and would like to contest it, please adhere to the following guidelines:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select t...",
+      "model_output": "If you have found an error on your [REDACTED_INVOICE] and would like to contest it, please adhere to the following guidelines:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select t...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:22:prompt_completion",
+      "question": "I got to appeal a fucking inetrnet bill, I need help",
+      "expected_answer": "If you believe there is an error in your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+      "model_output": "If you believe there is an error in your bill and wish to contest it, please adhere to the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the bill you wish to...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:23:prompt_completion",
+      "question": "wanna appeal a fucking phone bill were do i do it",
+      "expected_answer": "If you have found an error on your [REDACTED_INVOICE] and would like to contest it, please adhere to the following instructions:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select...",
+      "model_output": "If you have found an error on your [REDACTED_INVOICE] and would like to contest it, please adhere to the following instructions:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    },
+    {
+      "case_id": "sft_reference_eval:24:prompt_completion",
+      "question": "I'd like to challenge an internet bill, I need assistance",
+      "expected_answer": "If you believe there is an error on your [REDACTED_INVOICE] and wish to contest it, please proceed with the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the...",
+      "model_output": "If you believe there is an error on your [REDACTED_INVOICE] and wish to contest it, please proceed with the following steps:\r\n\r\n1. Log in to your account on {{WEBSITE_URL}}.\r\n2. Navigate to the {{[REDACTED_INVOICE]}} section.\r\n3. Select the...",
+      "missing_facts": [],
+      "reasons": [
+        "All expected source-grounded facts were present."
+      ],
+      "status": "passed",
+      "score": 1.0
+    }
+  ]
+}
