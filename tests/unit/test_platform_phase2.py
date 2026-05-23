@@ -108,13 +108,66 @@ def test_upload_dataset_rewrites_dev_namespace_to_hf_token_owner(monkeypatch):
 
     assert response.status_code == 200
     payload = response.json()
-    assert payload["dataset_id"] == "tester/generic-session-1234"
-    assert (
-        payload["url"] == "https://huggingface.co/datasets/tester/generic-session-1234"
-    )
+    assert payload["dataset_id"] == "tester/train-csv-1234"
+    assert payload["url"] == "https://huggingface.co/datasets/tester/train-csv-1234"
     api = _FakeHfApi.instances[-1]
-    assert api.created_repos[0]["repo_id"] == "tester/generic-session-1234"
-    assert api.uploads[0]["repo_id"] == "tester/generic-session-1234"
+    assert api.created_repos[0]["repo_id"] == "tester/train-csv-1234"
+    assert api.uploads[0]["repo_id"] == "tester/train-csv-1234"
+
+
+def test_upload_dataset_names_placeholder_repo_from_uploaded_pdf(monkeypatch):
+    monkeypatch.setenv("HF_TOKEN", "valid")
+
+    response = TestClient(main.app).post(
+        "/api/platform/upload-dataset",
+        data={"repo_id": "dev/generic-session-c0d14ace"},
+        files={
+            "files": (
+                "Transformers.pdf",
+                _pdf_bytes("Attention mechanisms transform sequence modeling."),
+                "application/pdf",
+            )
+        },
+    )
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["dataset_id"] == "tester/transformers-pdf-c0d14ace"
+
+
+def test_upload_dataset_names_placeholder_repo_from_multiple_uploads(monkeypatch):
+    monkeypatch.setenv("HF_TOKEN", "valid")
+
+    response = TestClient(main.app).post(
+        "/api/platform/upload-dataset",
+        data={"repo_id": "dev/generic-session-28af10"},
+        files=[
+            (
+                "files",
+                (
+                    "Transformers.pdf",
+                    _pdf_bytes("Transformers use attention."),
+                    "application/pdf",
+                ),
+            ),
+            (
+                "files",
+                (
+                    "Attention_Notes.docx",
+                    _docx_bytes(paragraphs=["Attention notes"], table_rows=[]),
+                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                ),
+            ),
+            (
+                "files",
+                ("qa_pairs.csv", b"question,answer\nWhat?,This.\n", "text/csv"),
+            ),
+        ],
+    )
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["dataset_id"] == "tester/transformers-attention-qa-bundle-28af10"
 
 
 def test_upload_dataset_accepts_multiple_files_and_profiles_combined_rows(monkeypatch):

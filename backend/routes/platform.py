@@ -28,6 +28,12 @@ async def upload_dataset(
         app_username=str(user.get("username") or user.get("user_id") or ""),
     )
     upload_files = list(files or [])
+    uploaded_names = [item.filename for item in upload_files]
+    if file is not None:
+        uploaded_names.append(file.filename)
+    resolved_repo_id = dataset_service.friendly_upload_repo_id_from_filenames(
+        resolved_repo_id, uploaded_names
+    )
     if upload_files:
         payload = await dataset_service.upload_dataset_files(
             files=upload_files,

@@ -2,6 +2,7 @@
 
 import os
 import json
+import re
 import tempfile
 from pathlib import PurePosixPath, PureWindowsPath
 from typing import Any
@@ -30,6 +31,22 @@ ALLOWED_DATASET_EXTENSIONS = {
 PRIMARY_UPLOAD_EXTENSIONS = {".pdf", ".docx", ".csv", ".xlsx"}
 MAX_UPLOAD_BYTES = 100 * 1024 * 1024
 MAX_PROFILE_UPLOAD_BYTES = 10 * 1024 * 1024
+_SESSION_REPO_RE = re.compile(r"(?:^|-)session-([A-Za-z0-9]{4,16})$")
+_SLUG_TOKEN_RE = re.compile(r"[a-z0-9]+")
+_FILENAME_STOP_WORDS = {
+    "data",
+    "dataset",
+    "file",
+    "files",
+    "note",
+    "notes",
+    "pair",
+    "pairs",
+    "reference",
+    "references",
+    "upload",
+    "uploads",
+}
 
 
 def safe_exception_detail(prefix: str, exc: Exception) -> str:
@@ -101,6 +118,71 @@ def resolve_upload_repo_id(
     if namespace in placeholder_namespaces and namespace != hf_username:
         return f"{hf_username}/{repo_name}"
     return normalized
+
+
+def friendly_upload_repo_id_from_filenames(
+    repo_id: str, filenames: list[str | None]
+) -> str:
+    """Replace placeholder session repo names with a safe filename-derived slug."""
+    normalized = repo_id.strip().removeprefix("datasets/").strip("/")
+    if "/" not in normalized:
+        return normalized
+
+    namespace, repo_name = normalized.split("/", 1)
+    suffix_match = _SESSION_REPO_RE.search(repo_name)
+    if not suffix_match:
+        return normalized
+
+    slug = _upload_filename_slug(filenames)
+    if not slug:
+        return normalized
+
+    suffix = suffix_match.group(1).lower()
+    return f"{namespace}/{slug[:80].strip('-')}-{suffix}"
+
+
+def _upload_filename_slug(filenames: list[str | None]) -> str:
+    parts: list[str] = []
+    cleaned = [_filename_tokens(filename) for filename in filenames if filename]
+    cleaned = [tokens for tokens in cleaned if tokens]
+    if not cleaned:
+        return ""
+
+    if len(cleaned) == 1:
+        stem_tokens, extension = cleaned[0]
+        parts.extend(stem_tokens)
+        if extension:
+            parts.append(extension)
+    else:
+        for stem_tokens, _extension in cleaned[:4]:
+            token = next(
+                (item for item in stem_tokens if item not in _FILENAME_STOP_WORDS),
+                stem_tokens[0],
+            )
+            parts.append(token)
+        parts.append("bundle")
+
+    return "-".join(_dedupe_ordered(parts)).strip("-")
+
+
+def _filename_tokens(filename: str | None) -> tuple[list[str], str] | None:
+    raw = str(PurePosixPath(PureWindowsPath((filename or "").strip()).name).name)
+    stem, extension = os.path.splitext(raw)
+    tokens = _SLUG_TOKEN_RE.findall(stem.lower())
+    extension_token = extension.lower().lstrip(".")
+    if not tokens and not extension_token:
+        return None
+    return (tokens or ["dataset"], extension_token)
+
+
+def _dedupe_ordered(parts: list[str]) -> list[str]:
+    seen: set[str] = set()
+    unique: list[str] = []
+    for part in parts:
+        if part and part not in seen:
+            unique.append(part)
+            seen.add(part)
+    return unique
 
 
 def sanitize_dataset_filename(filename: str | None) -> str:

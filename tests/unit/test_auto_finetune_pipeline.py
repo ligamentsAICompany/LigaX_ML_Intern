@@ -59,6 +59,10 @@ def test_intent_and_dataset_repo_resolution_from_text_and_context():
         resolve_dataset_repo("fine tune this dataset", {"dataset_repo": "org/data"})
         == "org/data"
     )
+    assert (
+        resolve_dataset_repo("fine tune uploaded dataset", {"dataset_repo": "org/uploaded"})
+        == "org/uploaded"
+    )
 
 
 def test_training_template_uses_current_compatible_apis_and_passes_smoke():

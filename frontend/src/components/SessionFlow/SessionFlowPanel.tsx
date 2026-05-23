@@ -39,6 +39,7 @@ import type {
 } from '@/types/agent';
 import { apiFetch } from '@/utils/api';
 import { autoFineTuneResultFromOutput } from '@/utils/autoFineTuneResult';
+import { datasetUploadSummary, suggestedDatasetCommand } from '@/utils/datasetDisplay';
 import { PROVIDERS, type DomainTemplateOption, domainTemplateFromList, providerLabel, useDomainTemplates } from './domainOptions';
 
 const cardSx = {
@@ -354,7 +355,6 @@ export default function SessionFlowPanel({ sessionId }: SessionFlowPanelProps) {
           ...resultFromOutput,
         }
       : undefined;
-
   const legacyCockpit = (
     <Box
       sx={{
@@ -535,6 +535,7 @@ function AutoFineTunePanel({
   const failed = state === 'failed' || state === 'blocked';
   const status = progress?.message
     ?? (isProcessing || activityStatus.type === 'tool' ? statusCopy(activityStatus).label : 'Add a dataset, then send the prompt to start one clean run.');
+  const runCommand = suggestedDatasetCommand();
 
   return (
     <Box sx={{ px: { xs: 0, md: 1 }, pt: { xs: 0.5, md: 1 }, flexShrink: 0 }}>
@@ -572,7 +573,7 @@ function AutoFineTunePanel({
               <Stack spacing={1}>
                 <Box sx={{ border: '1px solid rgba(34,197,94,0.2)', borderRadius: '14px', bgcolor: 'rgba(2,6,23,0.46)', px: 1.15, py: 1 }}>
                   <Typography sx={{ color: 'var(--text)', fontSize: '0.86rem', fontWeight: 850, fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, monospace' }}>
-                    fine tune this dataset{dataset.repoId ? ` ${dataset.repoId}` : ''}
+                    {runCommand}
                   </Typography>
                 </Box>
                 <Typography sx={{ color: failed ? 'var(--accent-red)' : 'var(--muted-text)', fontSize: '0.72rem', lineHeight: 1.5 }}>
@@ -788,6 +789,7 @@ function DatasetPanel({
     template.starterKit?.datasetGuidance[0]
     ?? template.suggestedDatasets[0]
     ?? 'Uses the existing dataset upload API. You can also describe a private dataset in chat.';
+  const summary = datasetUploadSummary(dataset);
 
   function updateRepo(value: string) {
     setRepoId(value);
@@ -881,24 +883,43 @@ function DatasetPanel({
           {dataset.status === 'uploading' ? 'Uploading dataset' : 'Choose dataset files'}
           {dataset.status === 'uploading' && <CircularProgress size={14} />}
         </Button>
-        <Typography sx={{ color: dataset.status === 'error' ? 'var(--accent-red)' : 'var(--muted-text)', fontSize: '0.68rem', lineHeight: 1.45 }}>
+        <Box sx={{ color: dataset.status === 'error' ? 'var(--accent-red)' : 'var(--muted-text)', fontSize: '0.68rem', lineHeight: 1.45 }}>
           {dataset.status === 'ready' ? (
-            <>
-              {dataset.files?.length ? `${dataset.files.length} source files -> ${dataset.filename}` : dataset.filename} ·{' '}
-              {dataset.url ? (
-                <Link href={dataset.url} target="_blank" rel="noopener noreferrer" sx={{ color: 'var(--accent-green)' }}>
-                  Open on Hub
-                </Link>
-              ) : (
-                dataset.repoId
-              )}
-            </>
+            <Stack spacing={0.45}>
+              {summary.uploadedFiles.length ? (
+                <Box>
+                  <Typography component="span" sx={{ color: 'var(--text)', fontSize: '0.68rem', fontWeight: 850 }}>
+                    Uploaded file(s)
+                  </Typography>
+                  {summary.uploadedFiles.map((filename) => (
+                    <Typography key={filename} sx={{ color: 'var(--muted-text)', fontSize: '0.68rem', lineHeight: 1.35 }}>
+                      {filename}
+                    </Typography>
+                  ))}
+                </Box>
+              ) : null}
+              {summary.hubDataset ? (
+                <Box>
+                  <Typography component="span" sx={{ color: 'var(--text)', fontSize: '0.68rem', fontWeight: 850 }}>
+                    Hub dataset
+                  </Typography>
+                  <Typography sx={{ color: 'var(--muted-text)', fontSize: '0.68rem', lineHeight: 1.35, wordBreak: 'break-all' }}>
+                    {summary.hubDataset}
+                  </Typography>
+                  {dataset.url ? (
+                    <Link href={dataset.url} target="_blank" rel="noopener noreferrer" sx={{ color: 'var(--accent-green)', fontSize: '0.68rem', fontWeight: 800 }}>
+                      Open on Hub
+                    </Link>
+                  ) : null}
+                </Box>
+              ) : null}
+            </Stack>
           ) : dataset.status === 'error' ? (
             dataset.error || 'Upload failed.'
           ) : (
             datasetHint
           )}
-        </Typography>
+        </Box>
       </Stack>
     </Box>
   );
