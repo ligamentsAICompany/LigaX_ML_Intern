@@ -1,8 +1,10 @@
 /**
- * Persist research sub-agent state per session so refreshes keep recent steps.
+ * Persist research sub-agent state (steps + stats) per session.
+ * Survives page refresh so the rolling display isn't lost mid-research.
  */
 import type { PerSessionState } from '@/store/agentStore';
 
+/** Max steps to keep in storage and display. Single source of truth. */
 export const RESEARCH_MAX_STEPS = 4;
 
 const STORAGE_KEY = 'hf-agent-research';
@@ -26,9 +28,7 @@ function readAll(): ResearchMap {
 function writeAll(map: ResearchMap): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(map));
-  } catch {
-    // Best-effort UI cache.
-  }
+  } catch { /* quota exceeded — ignore */ }
 }
 
 export function saveResearch(
@@ -45,7 +45,8 @@ export function saveResearch(
 }
 
 export function loadResearch(sessionId: string): ResearchState | null {
-  return readAll()[sessionId] ?? null;
+  const map = readAll();
+  return map[sessionId] ?? null;
 }
 
 export function clearResearch(sessionId: string): void {

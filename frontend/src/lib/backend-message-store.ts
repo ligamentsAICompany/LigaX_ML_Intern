@@ -1,6 +1,8 @@
 /**
  * localStorage cache of raw backend (litellm Message) dicts keyed by
- * session ID. Used to restore a session into a fresh backend after restart.
+ * session ID. Used to restore a session into a fresh backend after the
+ * Space restarts — the browser-side UIMessages are what the user sees,
+ * but the LLM needs the backend format to continue the conversation.
  */
 import { logger } from '@/utils/logger';
 
@@ -26,22 +28,27 @@ function readAll(): MessagesMap {
 function writeAll(map: MessagesMap): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(map));
-  } catch (error) {
-    logger.warn('Failed to persist backend messages:', error);
+  } catch (e) {
+    // Quota exceeded is the most common reason — the cache is best-effort.
+    logger.warn('Failed to persist backend messages:', e);
   }
 }
 
 export function loadBackendMessages(sessionId: string): unknown[] {
-  return readAll()[sessionId] ?? [];
+  const map = readAll();
+  return map[sessionId] ?? [];
 }
 
 export function saveBackendMessages(sessionId: string, messages: unknown[]): void {
   const map = readAll();
   map[sessionId] = messages;
+
   const keys = Object.keys(map);
   if (keys.length > MAX_SESSIONS) {
-    for (const key of keys.slice(0, keys.length - MAX_SESSIONS)) delete map[key];
+    const toRemove = keys.slice(0, keys.length - MAX_SESSIONS);
+    for (const k of toRemove) delete map[k];
   }
+
   writeAll(map);
 }
 
