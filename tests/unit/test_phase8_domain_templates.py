@@ -136,6 +136,62 @@ def test_invalid_structured_context_falls_back_safely():
     assert "not-a-provider" not in submitted
 
 
+def test_chat_sse_uses_stored_dataset_repo_when_context_is_omitted(monkeypatch):
+    captured = {}
+
+    class FakeBroadcaster:
+        def subscribe(self):
+            captured["subscribed"] = True
+            return 1, asyncio.Queue()
+
+        def unsubscribe(self, sub_id):
+            captured["unsubscribed"] = sub_id
+
+    class FakeAgentSession:
+        is_active = True
+        domain_id = "generic"
+        provider_id = "hf-jobs"
+        dataset_repo = "ligax/uploaded-support"
+        broadcaster = FakeBroadcaster()
+
+    class FakeRequest:
+        async def json(self):
+            return {"text": "fine tune uploaded dataset"}
+
+    async def fake_check_session_access(session_id, user, request):
+        captured["checked"] = (session_id, user, request)
+        return FakeAgentSession()
+
+    async def fake_enforce_claude_quota(user, agent_session):
+        captured["quota_checked"] = (user, agent_session)
+
+    async def fake_submit_user_input(session_id, text):
+        captured["submitted"] = (session_id, text)
+        return True
+
+    monkeypatch.setattr(
+        agent_routes, "_check_session_access", fake_check_session_access
+    )
+    monkeypatch.setattr(
+        agent_routes, "_enforce_claude_quota", fake_enforce_claude_quota
+    )
+    monkeypatch.setattr(
+        agent_routes.session_manager,
+        "submit_user_input",
+        fake_submit_user_input,
+    )
+
+    response = asyncio.run(
+        agent_routes.chat_sse("session-1", FakeRequest(), {"user_id": "dev"})
+    )
+
+    assert response.media_type == "text/event-stream"
+    assert captured["submitted"][0] == "session-1"
+    submitted_text = captured["submitted"][1]
+    assert "- Dataset repo: ligax/uploaded-support" in submitted_text
+    assert "User request:\nfine tune uploaded dataset" in submitted_text
+
+
 def test_invalid_custom_starter_kit_text_is_not_trusted():
     submitted = agent_routes._compose_submitted_text(
         "Use the selected starter kit.",

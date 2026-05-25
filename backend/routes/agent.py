@@ -329,6 +329,23 @@ def _compose_submitted_text(text: Any, context: Any) -> str:
     return f"{context_text}\n\nUser request:\n{submitted_text}"
 
 
+def _stored_workflow_context(agent_session: AgentSession) -> dict[str, str | None] | None:
+    metadata = normalize_workflow_metadata(
+        {
+            "domain_id": getattr(agent_session, "domain_id", None),
+            "provider_id": getattr(agent_session, "provider_id", None),
+            "dataset_repo": getattr(agent_session, "dataset_repo", None),
+        }
+    )
+    if (
+        metadata["dataset_repo"]
+        or metadata["domain_id"] != "generic"
+        or metadata["provider_id"] != "hf-jobs"
+    ):
+        return metadata
+    return None
+
+
 @router.post("/title")
 async def generate_title(
     request: SubmitRequest, user: dict = Depends(get_current_user)
@@ -665,6 +682,7 @@ async def chat_sse(
     text = body.get("text")
     context = body.get("context")
     approvals = body.get("approvals")
+    effective_context = context
     if text is not None and isinstance(context, (dict, str)):
         metadata = normalize_workflow_metadata(context)
         await session_manager.update_session_metadata(
@@ -673,6 +691,9 @@ async def chat_sse(
             provider_id=metadata["provider_id"],
             dataset_repo=metadata["dataset_repo"],
         )
+        effective_context = metadata
+    elif text is not None:
+        effective_context = _stored_workflow_context(agent_session)
 
     # Gate user-message sends against the daily Claude quota. Approvals are
     # continuations of an in-progress turn — the session was already charged
@@ -697,7 +718,7 @@ async def chat_sse(
             ]
             success = await session_manager.submit_approval(session_id, formatted)
         elif text is not None:
-            submitted_text = _compose_submitted_text(text, context)
+            submitted_text = _compose_submitted_text(text, effective_context)
             success = await session_manager.submit_user_input(
                 session_id, submitted_text
             )
