@@ -329,7 +329,9 @@ def _compose_submitted_text(text: Any, context: Any) -> str:
     return f"{context_text}\n\nUser request:\n{submitted_text}"
 
 
-def _stored_workflow_context(agent_session: AgentSession) -> dict[str, str | None] | None:
+def _stored_workflow_context(
+    agent_session: AgentSession,
+) -> dict[str, str | None] | None:
     metadata = normalize_workflow_metadata(
         {
             "domain_id": getattr(agent_session, "domain_id", None),
